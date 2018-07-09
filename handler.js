@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports.hello = (event, context, callback) => {
+
+  const { getPage, parsePage, saveRatingsToDB } = require('utils');
+
   const response = {
     statusCode: 200,
     body: JSON.stringify({
