@@ -4,7 +4,9 @@ module.exports.scrape = (event, context, callback) => {
 
   const { getPage, parsePage, saveRatingsToDB } = require('./utils');
   
-  getPage(event).then(page => console.log(page));
+  getPage(event)
+    .then(page => parsePage(page))
+    .then(yelpData => saveRatingsToDB(yelpData));
 
   const response = {
     statusCode: 200,
