@@ -20,10 +20,11 @@ service: yelp-scrapper # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs6.10
-  region: us-west-2
+  region: us-east-1
   stage: dev
   environment:
-    DYNAMO_TABLE: yelp-ratings
+    DYNAMODB_TABLE: yelp-ratings
+    SLS_DEBUG: '*'
   ismRoleStatements:
     - Effect: Allow
       Action:
