@@ -1,8 +1,10 @@
 'use strict';
 
-module.exports.hello = (event, context, callback) => {
+module.exports.scrape = (event, context, callback) => {
 
-  const { getPage, parsePage, saveRatingsToDB } = require('utils');
+  const { getPage, parsePage, saveRatingsToDB } = require('./utils');
+  
+  getPage(event).then(page => console.log(page));
 
   const response = {
     statusCode: 200,
